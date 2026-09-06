@@ -3,4 +3,10 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-    return HttpResponse('<h2> Hey, Welcome</h2>')
+    
+    return render(request, 'index.html')       #adding address of index.html
+
+def counter(request):
+    text = request.POST['text']
+    no_of_words = len(text.split())
+    return render(request, 'counter.html', {'number' : no_of_words})
